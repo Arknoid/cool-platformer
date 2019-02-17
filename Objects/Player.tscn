@@ -1,0 +1,166 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-8.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Player/player-idle/player-idle-9.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Player/player-climb/player-climb-1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Player/player-climb/player-climb-2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Player/player-climb/player-climb-3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Player/player-climb/player-climb-4.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Player/player-duck/player-duck-1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Player/player-duck/player-duck-2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Player/player-duck/player-duck-3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Player/player-duck/player-duck-4.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-1.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-3.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-4.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-5.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-6.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/Player/player-skip/player-skip-7.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/Player/player-jump/player-jump-1.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/Player/player-jump/player-jump-2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/Player/player-jump/player-jump-3.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/Player/player-jump/player-jump-4.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprites/Player/player-fall/player-fall-1.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Sprites/Player/player-fall/player-fall-2.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Sprites/Player/player-fall/player-fall-3.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Sprites/Player/player-fall/player-fall-4.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Sprites/Player/player-hurt/player-hurt-1.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Sprites/Player/player-hurt/player-hurt-2.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Backgrounds/Sky.png" type="Texture" id=36]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "climb",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 11.9286
+height = 13.0327
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+position = Vector2( 0.473175, 0.0827789 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 7
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.416554, 4.42732 )
+scale = Vector2( 0.503458, 0.631074 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing" ]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 640, 640 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+texture = ExtResource( 36 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+
